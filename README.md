@@ -53,7 +53,7 @@ run_eval.py
   simple command wrapper for the evaluator
 ```
 
-Large models and image files are tracked with Git LFS.
+Large model weight files are tracked with Git LFS.
 
 ## Setup
 
@@ -76,6 +76,39 @@ If Git LFS was not installed before cloning, install it and run:
 git lfs install
 git lfs pull
 ```
+
+## Fallback Without Git LFS
+
+If `git lfs pull` fails because the GitHub LFS bandwidth quota is exhausted,
+clone the repository without LFS smudge and download the model weights from the
+GitHub Release asset instead:
+
+```powershell
+$env:GIT_LFS_SKIP_SMUDGE=1
+git clone https://github.com/abenjas69/SPINAL-AI2024-BORGES-EVAL.git
+cd SPINAL-AI2024-BORGES-EVAL
+```
+
+Then download `spinal-ai2024-borges-eval-models-v1.zip` from:
+
+```text
+https://github.com/abenjas69/SPINAL-AI2024-BORGES-EVAL/releases/tag/models-v1
+```
+
+Extract the zip into the repository root, replacing the LFS pointer files:
+
+```powershell
+Expand-Archive ..\spinal-ai2024-borges-eval-models-v1.zip -DestinationPath . -Force
+
+python -m venv .venv
+.\\.venv\\Scripts\\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+python run_eval.py all-smoke --num-images 2
+```
+
+If a `.keras` file starts with `version https://git-lfs.github.com/spec/v1`,
+it is still only an LFS pointer and the zip was not extracted correctly.
 
 ## Quick Smoke Test
 
