@@ -22,12 +22,31 @@ At the time this repository was prepared, the upstream dataset repository did
 not expose an explicit license file. For that reason, this project references
 the upstream source instead of republishing the images or complete annotations.
 
+Files used by this project:
+
+```text
+Spinal-AI2024-subset5/
+Spinal_AI2024_test_annotation.zip
+Cobb_spinal-AI2024-test_gt.txt
+```
+
 Expected local placement for full subset5 reruns:
 
 ```text
 raw/images/test/Spinal-AI2024-subset5/
 processed/cleaned/test_ready_annotations_clean.json
 ```
+
+Recommended local setup:
+
+```powershell
+git clone --depth 1 https://github.com/Ernestchenchen/Spinal-AI2024.git ..\Spinal-AI2024
+python scripts/prepare_spinal_ai2024_subset5.py --upstream ..\Spinal-AI2024
+python run_eval.py check-data
+```
+
+The helper keeps samples with at least 14 vertebra annotations, matching the
+cleaned subset5 evaluation set used by this project.
 
 ## AASCE 2019
 
