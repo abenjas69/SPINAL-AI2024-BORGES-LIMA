@@ -121,6 +121,11 @@ def subset5_fusion_reference(args: argparse.Namespace) -> None:
     )
 
 
+def reference_smoke(args: argparse.Namespace) -> None:
+    del args
+    subset5_fusion_reference(argparse.Namespace())
+
+
 def aasce_fusion(args: argparse.Namespace) -> None:
     run(
         [
@@ -163,6 +168,7 @@ def build_parser() -> argparse.ArgumentParser:
             "subset5-daniel",
             "subset5-fusion",
             "subset5-fusion-reference",
+            "reference-smoke",
             "aasce-fusion",
             "all-smoke",
         ),
@@ -192,6 +198,7 @@ def main() -> None:
         "subset5-daniel": subset5_daniel,
         "subset5-fusion": subset5_fusion,
         "subset5-fusion-reference": subset5_fusion_reference,
+        "reference-smoke": reference_smoke,
         "aasce-fusion": aasce_fusion,
         "all-smoke": all_smoke,
     }

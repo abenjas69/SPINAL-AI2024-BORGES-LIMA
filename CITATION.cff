@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it as below."
+title: "SPINAL-AI2024-BORGES-LIMA: Interpretable Deep Learning for Automated Scoliosis Assessment"
+type: software
+authors:
+  - family-names: Borges
+    given-names: Diogo
+  - family-names: Lima
+    given-names: Daniel
+repository-code: "https://github.com/abenjas69/SPINAL-AI2024-BORGES-LIMA"
+date-released: "2026-07-05"
+license: MIT
+keywords:
+  - medical imaging
+  - scoliosis
+  - Cobb angle
+  - deep learning
+  - landmarks
+  - centerline
+  - radiographs

@@ -1,17 +1,15 @@
 # Data Notice
 
-This repository is an academic evaluation package for the SPINAL-AI2024 scoliosis project.
-It includes only the data and trained weights needed to reproduce the final locked tests:
+Raw radiographs are not redistributed in the active tree of this public
+portfolio repository.
 
-- SPINAL-AI2024 subset5 test images and cleaned annotations.
-- AASCE 2019 processed evaluation manifest and radiographs.
-- Trained model weights for Diogo Borges' landmark/Cobb pipeline.
-- Trained centerline model weights supplied for Daniel Lima's pipeline.
+The repository keeps trained weights, processed manifests, cleaned annotation
+metadata, reference predictions, and metric files needed to audit the final
+project results. Full image-level reruns require users to obtain the original
+datasets through their legitimate sources and restore them locally.
 
-The files are provided for project assessment and reproducibility. Any reuse,
-redistribution, publication, or clinical use must respect the terms of the
-original datasets and institutional rules.
+See [`DATA_LICENSE.md`](DATA_LICENSE.md) for dataset placement, reuse limits,
+and the distinction between code, models, metadata, and raw medical images.
 
-The code and models are not medical devices. The outputs are for research,
-triage support, and academic analysis only; they are not autonomous clinical
-diagnoses.
+The code and models are academic research artifacts. They are not medical
+devices and must not be used as autonomous clinical diagnosis tools.
