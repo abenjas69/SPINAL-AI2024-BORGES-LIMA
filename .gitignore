@@ -7,6 +7,9 @@ __pycache__/
 outputs/
 reports/
 
+raw/images/test/Spinal-AI2024-subset5/
+external_datasets/ascee_aasce2019/raw/
+
 experiments/*
 !experiments/reference/
 !experiments/reference/**
