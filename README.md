@@ -14,6 +14,23 @@ final evaluation code, trained models, aggregate reference metrics, and
 documentation needed to understand and audit the project without mirroring the
 datasets in the active repository tree.
 
+## Dataset Quick Start
+
+The SPINAL-AI2024 radiographs are public upstream, but they are not mirrored in
+this repository. For image-level reruns, clone the upstream dataset next to this
+repository and run the preparation helper:
+
+```powershell
+git clone --depth 1 https://github.com/Ernestchenchen/Spinal-AI2024.git ..\Spinal-AI2024
+python scripts/prepare_spinal_ai2024_subset5.py --upstream ..\Spinal-AI2024
+python run_eval.py check-data
+```
+
+The helper copies the test radiographs from upstream `Spinal-AI2024-subset5/`
+into `raw/images/test/Spinal-AI2024-subset5/` and rebuilds
+`processed/cleaned/test_ready_annotations_clean.json` from the public COCO
+annotation zip plus Cobb ground-truth text file.
+
 ![Model pipelines overview](docs/assets/model_pipelines_overview.png)
 
 ## What This Project Does
@@ -124,6 +141,12 @@ does not require raw radiographs or per-image annotations.
 
 ```powershell
 python run_eval.py metrics-summary
+```
+
+To check whether the optional local subset5 data has been restored:
+
+```powershell
+python run_eval.py check-data
 ```
 
 ## Full Evaluation Commands

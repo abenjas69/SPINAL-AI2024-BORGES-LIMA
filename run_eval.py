@@ -184,6 +184,16 @@ def metrics_summary(args: argparse.Namespace) -> None:
         )
 
 
+def check_data(args: argparse.Namespace) -> None:
+    del args
+    command = [PYTHON, script("prepare_spinal_ai2024_subset5.py"), "--check-only"]
+    printable = " ".join(str(part) for part in command)
+    print(f"\n$ {printable}", flush=True)
+    completed = subprocess.run(command, cwd=ROOT, check=False)
+    if completed.returncode:
+        raise SystemExit(completed.returncode)
+
+
 def aasce_fusion(args: argparse.Namespace) -> None:
     run(
         [
@@ -226,6 +236,7 @@ def build_parser() -> argparse.ArgumentParser:
             "subset5-daniel",
             "subset5-fusion",
             "metrics-summary",
+            "check-data",
             "aasce-fusion",
             "all-smoke",
         ),
@@ -255,6 +266,7 @@ def main() -> None:
         "subset5-daniel": subset5_daniel,
         "subset5-fusion": subset5_fusion,
         "metrics-summary": metrics_summary,
+        "check-data": check_data,
         "aasce-fusion": aasce_fusion,
         "all-smoke": all_smoke,
     }

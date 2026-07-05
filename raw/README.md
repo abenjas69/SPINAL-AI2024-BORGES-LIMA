@@ -10,6 +10,14 @@ authorized local images under:
 raw/images/test/Spinal-AI2024-subset5/
 ```
 
+Recommended setup from a local upstream clone:
+
+```powershell
+git clone --depth 1 https://github.com/Ernestchenchen/Spinal-AI2024.git ..\Spinal-AI2024
+python scripts/prepare_spinal_ai2024_subset5.py --upstream ..\Spinal-AI2024
+python run_eval.py check-data
+```
+
 Expected filenames follow the original subset5 range, for example:
 
 ```text
