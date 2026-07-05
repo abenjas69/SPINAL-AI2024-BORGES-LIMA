@@ -14,6 +14,19 @@ final evaluation code, trained models, aggregate reference metrics, and
 documentation needed to understand and audit the project without mirroring the
 datasets in the active repository tree.
 
+## For Reviewers
+
+The fastest way to evaluate the project as professional AI experience is:
+
+- read the [`Portfolio Case Study`](docs/PORTFOLIO_CASE_STUDY.md) for the
+  problem, contribution, results, limitations, and skills demonstrated;
+- inspect [`MODEL_CARD.md`](MODEL_CARD.md) for intended use, safety notes, and
+  known failure modes;
+- run `python run_eval.py metrics-summary` to verify the aggregate reference
+  metrics without restoring datasets;
+- use the [`models-v1` release](https://github.com/abenjas69/SPINAL-AI2024-BORGES-LIMA/releases/tag/models-v1)
+  if Git LFS quota blocks model-weight downloads.
+
 ## Dataset Quick Start
 
 The SPINAL-AI2024 radiographs are public upstream, but they are not mirrored in
