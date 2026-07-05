@@ -19,31 +19,8 @@
     "max": 114.7167683865278,
     "p90": 4.276362485605361
   },
-  "mat_sample_check": {
-    "attempted": 3,
-    "checked": 3,
-    "status": "ok",
-    "max_abs_delta": 4.983164983207722e-06,
-    "details": [
-      {
-        "file_name": "sunhl-1th-02-Jan-2017-162 A AP.jpg",
-        "status": "ok",
-        "max_abs_delta": 4.966887417245935e-06
-      },
-      {
-        "file_name": "sunhl-1th-02-Jan-2017-162 B AP.jpg",
-        "status": "ok",
-        "max_abs_delta": 4.953617810832256e-06
-      },
-      {
-        "file_name": "sunhl-1th-03-Jan-2017-163 A AP.jpg",
-        "status": "ok",
-        "max_abs_delta": 4.983164983207722e-06
-      }
-    ]
-  },
-  "manifest_jsonl": "external_datasets/ascee_aasce2019/processed/ascee_aasce2019_manifest.jsonl",
-  "manifest_csv": "external_datasets/ascee_aasce2019/processed/ascee_aasce2019_manifest.csv",
+  "manifest_jsonl": "not redistributed in this public portfolio tree",
+  "manifest_csv": "not redistributed in this public portfolio tree",
   "summary_json": "external_datasets/ascee_aasce2019/processed/ascee_aasce2019_summary.json",
   "report_path": "external_datasets/ascee_aasce2019/processed/ascee_aasce2019_prepare_report.md"
 }

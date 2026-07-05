@@ -3,8 +3,8 @@
 ## Setup
 
 - mode: `apply-locked`
-- mlp predictions: `.\experiments\fusion_centerline_model_v3_phase5_roi_final_test\mlp_v2_predictions.csv`
-- centerline predictions: `.\experiments\fusion_centerline_model_v3_phase5_roi_final_test\colleague_centerline_predictions.csv`
+- mlp predictions: not redistributed in this public portfolio tree
+- centerline predictions: not redistributed in this public portfolio tree
 - common rows: `3988`
 - mlp rows: `3988`
 - centerline rows: `3988`
@@ -30,7 +30,7 @@
 
 ## Outputs
 
-- predictions CSV: `.\experiments\fusion_centerline_mlp_v3_final_test\fusion_centerline_mlp_v3_predictions.csv`
+- predictions CSV: not redistributed in this public portfolio tree
 - metrics JSON: `.\experiments\fusion_centerline_mlp_v3_final_test\fusion_centerline_mlp_v3_metrics.json`
 - lock JSON: `.\experiments\fusion_centerline_mlp_v3_final_test\fusion_centerline_mlp_v3_lock.json`
 
