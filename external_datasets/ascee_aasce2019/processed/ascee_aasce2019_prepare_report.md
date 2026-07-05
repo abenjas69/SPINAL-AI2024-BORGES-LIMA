@@ -29,6 +29,6 @@ No training split, tuning, or model selection is performed here.
 
 ## Artefacts
 
-- manifest JSONL: `external_datasets/ascee_aasce2019/processed/ascee_aasce2019_manifest.jsonl`
-- manifest CSV: `external_datasets/ascee_aasce2019/processed/ascee_aasce2019_manifest.csv`
+- manifest JSONL: not redistributed in this public portfolio tree
+- manifest CSV: not redistributed in this public portfolio tree
 - summary JSON: `external_datasets/ascee_aasce2019/processed/ascee_aasce2019_summary.json`

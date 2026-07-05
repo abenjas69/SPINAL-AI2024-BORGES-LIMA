@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -102,28 +103,85 @@ def subset5_fusion(args: argparse.Namespace) -> None:
     )
 
 
-def subset5_fusion_reference(args: argparse.Namespace) -> None:
-    del args
-    run(
-        [
-            PYTHON,
-            script("112_eval_fusion_centerline_mlp_v3.py"),
-            "--mlp-predictions",
-            "experiments/reference/subset5_centerline/mlp_v2_predictions.csv",
-            "--centerline-predictions",
-            "experiments/reference/subset5_centerline/colleague_centerline_predictions.csv",
-            "--output-dir",
-            "outputs/subset5_fusion_reference",
-            "--lock-input",
-            "experiments/fusion_centerline_mlp_v3_holdout3192/fusion_centerline_mlp_v3_lock.json",
-            "--require-same-files",
-        ]
-    )
+def metric_at(path: str, *keys: str) -> dict:
+    data = json.loads((ROOT / path).read_text(encoding="utf-8"))
+    for key in keys:
+        data = data[key]
+    return data
 
 
-def reference_smoke(args: argparse.Namespace) -> None:
+def format_n(metrics: dict) -> str:
+    total = metrics.get("total_images")
+    covered = metrics.get("num_images")
+    if total is not None and covered is not None and total != covered:
+        return f"{covered}/{total}"
+    return str(covered if covered is not None else total)
+
+
+def metrics_summary(args: argparse.Namespace) -> None:
     del args
-    subset5_fusion_reference(argparse.Namespace())
+    rows = [
+        (
+            "Landmark MLP v2, subset5",
+            metric_at(
+                "experiments/reference/subset5_diogo/final_test_subset5_mlp_v2_metrics.json",
+                "metrics",
+                "calibrated_mlp_v2_original",
+            ),
+        ),
+        (
+            "Centerline raw max Cobb, subset5",
+            metric_at(
+                "experiments/reference/subset5_centerline/centerline_v3_phase5_roi_metrics.json",
+                "metrics",
+                "max_cobb",
+            ),
+        ),
+        (
+            "Centerline bias-corrected, subset5",
+            metric_at(
+                "experiments/reference/subset5_fusion/fusion_centerline_mlp_v3_metrics.json",
+                "metrics",
+                "centerline_bias_corrected",
+            ),
+        ),
+        (
+            "Locked fusion v3, subset5",
+            metric_at(
+                "experiments/reference/subset5_fusion/fusion_centerline_mlp_v3_metrics.json",
+                "metrics",
+                "fusion_v3_locked",
+            ),
+        ),
+        (
+            "AASCE fusion, zero-shot",
+            metric_at(
+                "experiments/reference/aasce_fusion/ascee_aasce2019_fusion_v3_locked_metrics.json",
+                "metrics",
+                "fusion_v3_locked",
+            ),
+        ),
+        (
+            "AASCE GT-landmark geometry audit",
+            metric_at(
+                "experiments/reference/aasce_fusion/ascee_aasce2019_fusion_v3_locked_metrics.json",
+                "metrics",
+                "gt_landmark_geometry_audit",
+            ),
+        ),
+    ]
+    print("Reference aggregate metrics")
+    print("-" * 92)
+    print(f"{'Evaluation':42} {'N':>9} {'MAE':>10} {'SMAPE':>10} {'within5':>10}")
+    print("-" * 92)
+    for label, metrics in rows:
+        print(
+            f"{label:42} "
+            f"{format_n(metrics):>9} "
+            f"{metrics['mae_deg']:>9.4f}d "
+            f"{metrics['paper_smape_pct']:>9.4f}% "
+            f"{metrics['within_5deg_rate'] * 100:>9.2f}%"
+        )
 
 
 def aasce_fusion(args: argparse.Namespace) -> None:
@@ -153,7 +211,7 @@ def all_smoke(args: argparse.Namespace) -> None:
     )
     subset5_diogo(smoke)
     subset5_daniel(smoke)
-    subset5_fusion_reference(smoke)
+    subset5_fusion(smoke)
     aasce_fusion(smoke)
 
 
@@ -167,8 +225,7 @@ def build_parser() -> argparse.ArgumentParser:
             "subset5-diogo",
             "subset5-daniel",
             "subset5-fusion",
-            "subset5-fusion-reference",
-            "reference-smoke",
+            "metrics-summary",
             "aasce-fusion",
             "all-smoke",
         ),
@@ -197,8 +254,7 @@ def main() -> None:
         "subset5-diogo": subset5_diogo,
         "subset5-daniel": subset5_daniel,
         "subset5-fusion": subset5_fusion,
-        "subset5-fusion-reference": subset5_fusion_reference,
-        "reference-smoke": reference_smoke,
+        "metrics-summary": metrics_summary,
         "aasce-fusion": aasce_fusion,
         "all-smoke": all_smoke,
     }
