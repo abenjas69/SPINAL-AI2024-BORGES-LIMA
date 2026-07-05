@@ -17,6 +17,10 @@ The repository is intended for academic review, reproducibility checks,
 portfolio assessment, and research discussion around interpretable scoliosis
 measurement from radiographs.
 
+The public repository supports aggregate-metric inspection without datasets.
+Full image-level reruns require local restoration of the upstream datasets and
+annotations described in `DATASET_ACCESS.md`.
+
 ## Out Of Scope
 
 The models are not intended for:

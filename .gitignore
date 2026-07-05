@@ -8,7 +8,10 @@ outputs/
 reports/
 
 raw/images/test/Spinal-AI2024-subset5/
+processed/cleaned/test_ready_annotations_clean.json
 external_datasets/ascee_aasce2019/raw/
+external_datasets/ascee_aasce2019/processed/ascee_aasce2019_manifest.csv
+external_datasets/ascee_aasce2019/processed/ascee_aasce2019_manifest.jsonl
 
 experiments/*
 !experiments/reference/
@@ -17,6 +20,7 @@ experiments/*
 !experiments/fusion_centerline_mlp_v3_holdout3192/fusion_centerline_mlp_v3_lock.json
 !experiments/phase9_cobb_residual_mlp_v2_train12000_cal768_val3192/
 !experiments/phase9_cobb_residual_mlp_v2_train12000_cal768_val3192/**
+experiments/reference/**/*.csv
 
 *.log
 Thumbs.db

@@ -1,6 +1,7 @@
 # Raw Dataset Placement
 
-Raw SPINAL-AI2024 radiographs are not redistributed in this public repository.
+Raw SPINAL-AI2024 radiographs and complete cleaned annotations are not
+redistributed in this public repository.
 
 To run the full image-level SPINAL-AI2024 subset5 evaluations, restore the
 authorized local images under:
@@ -20,3 +21,10 @@ Expected filenames follow the original subset5 range, for example:
 
 This directory is ignored by Git so restored radiographs are not accidentally
 committed.
+
+The cleaned annotation file expected by the final evaluation scripts must also
+be restored locally at:
+
+```text
+processed/cleaned/test_ready_annotations_clean.json
+```

@@ -6,7 +6,5 @@
   "centerline_bias_correction_deg": 5.587282180786133,
   "centerline_weight": 0.28999999165534973,
   "mlp_weight": 0.7100000083446503,
-  "mlp_predictions": "experiments/reference/subset5_centerline/mlp_v2_predictions.csv",
-  "centerline_predictions": "experiments/reference/subset5_centerline/colleague_centerline_predictions.csv",
   "common_rows": 3192
 }

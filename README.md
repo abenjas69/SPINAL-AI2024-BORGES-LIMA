@@ -8,10 +8,11 @@ Engineering project developed by Diogo Borges and Daniel Lima. The project
 estimates Cobb angles from AP/PA spinal radiographs through explicit geometry:
 vertebral landmarks, a centerline model, and a locked late-fusion rule.
 
-The original working repository contained many exploratory experiments and raw
-evaluation images. This version keeps the final evaluation code, trained models,
-reference predictions, and documentation needed to understand and audit the
-project without redistributing raw radiographs in the active repository tree.
+The original working repository contained many exploratory experiments, raw
+evaluation images, and complete per-image annotations. This version keeps the
+final evaluation code, trained models, aggregate reference metrics, and
+documentation needed to understand and audit the project without mirroring the
+datasets in the active repository tree.
 
 ![Model pipelines overview](docs/assets/model_pipelines_overview.png)
 
@@ -66,16 +67,16 @@ scripts/
   final evaluation and model scripts used by the project
 
 experiments/reference/
-  stored full-run prediction CSVs and metric JSON files
+  aggregate metric JSON files from the final full runs
 
 experiments/fusion_centerline_mlp_v3_holdout3192/
   locked fusion configuration selected on the holdout split
 
 processed/cleaned/
-  cleaned SPINAL-AI2024 annotation metadata
+  local placement for restored SPINAL-AI2024 annotations
 
 external_datasets/ascee_aasce2019/processed/
-  processed AASCE evaluation manifests
+  aggregate AASCE preparation summary and local manifest placement
 
 docs/assets/
   presentation-quality project figures
@@ -84,8 +85,9 @@ run_eval.py
   convenience wrapper for reproducibility checks
 ```
 
-Raw radiographs are not redistributed in the active tree. See
-[`DATA_LICENSE.md`](DATA_LICENSE.md) before restoring any dataset locally.
+Raw radiographs, complete cleaned annotations, and per-image prediction CSVs are
+not redistributed in the active tree. See [`DATASET_ACCESS.md`](DATASET_ACCESS.md)
+and [`DATA_LICENSE.md`](DATA_LICENSE.md) before restoring any dataset locally.
 
 ## Setup
 
@@ -117,19 +119,17 @@ LFS pointer.
 
 ## Raw-Data-Free Check
 
-This command recomputes the locked fusion metrics from stored reference
-predictions. It does not require raw radiographs.
+This command prints the aggregate reference metrics kept in the repository. It
+does not require raw radiographs or per-image annotations.
 
 ```powershell
-python run_eval.py reference-smoke
+python run_eval.py metrics-summary
 ```
-
-Outputs are written under `outputs/subset5_fusion_reference/`.
 
 ## Full Evaluation Commands
 
-The commands below require the corresponding raw datasets to be restored
-locally according to [`DATA_LICENSE.md`](DATA_LICENSE.md).
+The commands below require the corresponding raw datasets and annotation
+artefacts to be restored locally according to [`DATASET_ACCESS.md`](DATASET_ACCESS.md).
 
 ```powershell
 python run_eval.py subset5-diogo --num-images 8
@@ -159,14 +159,18 @@ thousands of images.
 - The landmark and centerline methods were deliberately chosen as complementary
   geometric representations: local vertebral endplates versus global curve
   shape.
+- The datasets used by the project are upstream-accessible, but not mirrored in
+  this repository because the public availability terms do not clearly grant
+  third-party redistribution rights.
 - The former public repository name was `SPINAL-AI2024-BORGES-EVAL`. GitHub
   redirects old links after the rename, but new references should use
   `SPINAL-AI2024-BORGES-LIMA`.
 
 ## License And Data
 
-Code is released under the MIT License. Dataset rights, radiographs, and model
-weight reuse are documented separately in [`DATA_LICENSE.md`](DATA_LICENSE.md).
+Code is released under the MIT License. Dataset access, radiographs, annotations,
+and model weight reuse are documented separately in
+[`DATASET_ACCESS.md`](DATASET_ACCESS.md) and [`DATA_LICENSE.md`](DATA_LICENSE.md).
 
 The outputs are for research, reproducibility, and portfolio review only. They
 must not be used as autonomous clinical diagnoses.
