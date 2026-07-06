@@ -1,5 +1,9 @@
 # SPINAL-AI2024-BORGES-LIMA
 
+[![Validate raw-data-free checks](https://github.com/abenjas69/SPINAL-AI2024-BORGES-LIMA/actions/workflows/validate.yml/badge.svg)](https://github.com/abenjas69/SPINAL-AI2024-BORGES-LIMA/actions/workflows/validate.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Model weights](https://img.shields.io/badge/model%20weights-models--v1-green.svg)](https://github.com/abenjas69/SPINAL-AI2024-BORGES-LIMA/releases/tag/models-v1)
+
 Interpretable deep learning for automated scoliosis assessment from spinal
 radiographs.
 
@@ -198,9 +202,6 @@ thousands of images.
 - The datasets used by the project are upstream-accessible, but not mirrored in
   this repository because the public availability terms do not clearly grant
   third-party redistribution rights.
-- The former public repository name was `SPINAL-AI2024-BORGES-EVAL`. GitHub
-  redirects old links after the rename, but new references should use
-  `SPINAL-AI2024-BORGES-LIMA`.
 
 ## License And Data
 
