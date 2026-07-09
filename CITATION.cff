@@ -1,4 +1,4 @@
-cff-version: 1.2.0
+﻿cff-version: 1.2.0
 message: "If you use this repository, please cite it as below."
 title: "SPINAL-AI2024-BORGES-LIMA: Interpretable Deep Learning for Automated Scoliosis Assessment"
 type: software
@@ -7,7 +7,7 @@ authors:
     given-names: Diogo
   - family-names: Lima
     given-names: Daniel
-repository-code: "https://github.com/abenjass/SPINAL-AI2024-BORGES-LIMA"
+repository-code: "https://github.com/abenjas7/SPINAL-AI2024-BORGES-LIMA"
 date-released: "2026-07-05"
 license: MIT
 keywords:
@@ -18,3 +18,4 @@ keywords:
   - landmarks
   - centerline
   - radiographs
+

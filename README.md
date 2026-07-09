@@ -1,8 +1,8 @@
-# SPINAL-AI2024-BORGES-LIMA
+﻿# SPINAL-AI2024-BORGES-LIMA
 
-[![Validate raw-data-free checks](https://github.com/abenjass/SPINAL-AI2024-BORGES-LIMA/actions/workflows/validate.yml/badge.svg)](https://github.com/abenjass/SPINAL-AI2024-BORGES-LIMA/actions/workflows/validate.yml)
+[![Validate raw-data-free checks](https://github.com/abenjas7/SPINAL-AI2024-BORGES-LIMA/actions/workflows/validate.yml/badge.svg)](https://github.com/abenjas7/SPINAL-AI2024-BORGES-LIMA/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Model weights](https://img.shields.io/badge/model%20weights-models--v1-green.svg)](https://github.com/abenjass/SPINAL-AI2024-BORGES-LIMA/releases/tag/models-v1)
+[![Model weights](https://img.shields.io/badge/model%20weights-models--v1-green.svg)](https://github.com/abenjas7/SPINAL-AI2024-BORGES-LIMA/releases/tag/models-v1)
 
 Interpretable deep learning for automated scoliosis assessment from spinal
 radiographs.
@@ -28,7 +28,7 @@ The fastest way to evaluate the project as professional AI experience is:
   known failure modes;
 - run `python run_eval.py metrics-summary` to verify the aggregate reference
   metrics without restoring datasets;
-- use the [`models-v1` release](https://github.com/abenjass/SPINAL-AI2024-BORGES-LIMA/releases/tag/models-v1)
+- use the [`models-v1` release](https://github.com/abenjas7/SPINAL-AI2024-BORGES-LIMA/releases/tag/models-v1)
   if Git LFS quota blocks model-weight downloads.
 
 ## Dataset Quick Start
@@ -128,7 +128,7 @@ and [`DATA_LICENSE.md`](DATA_LICENSE.md) before restoring any dataset locally.
 Use Python 3.10 or 3.11 if possible.
 
 ```powershell
-git clone https://github.com/abenjass/SPINAL-AI2024-BORGES-LIMA.git
+git clone https://github.com/abenjas7/SPINAL-AI2024-BORGES-LIMA.git
 cd SPINAL-AI2024-BORGES-LIMA
 git lfs pull
 
@@ -211,3 +211,4 @@ and model weight reuse are documented separately in
 
 The outputs are for research, reproducibility, and portfolio review only. They
 must not be used as autonomous clinical diagnoses.
+
