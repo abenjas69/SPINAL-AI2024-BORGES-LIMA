@@ -8,7 +8,7 @@ Interpretable deep learning for automated scoliosis assessment from spinal
 radiographs.
 
 This repository is the public, portfolio-ready version of the final Computer
-Engineering project developed by Diogo Borges and Daniel Lima. The project
+Engineering project developed collaboratively by Diogo Borges and Daniel Lima. The project
 estimates Cobb angles from AP/PA spinal radiographs through explicit geometry:
 vertebral landmarks, a centerline model, and a locked late-fusion rule.
 
